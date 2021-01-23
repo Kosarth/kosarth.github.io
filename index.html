@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html style="height:100%"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Facebook sharing information tags -->
+    <meta property="og:title" content="[SUBJECT]">
+    <title>AKS QA</title>
+    <style type="text/css">
+      /* Client-specific Styles */
+      #outlook a{padding:0;} /* Force Outlook to provide a "view in browser" button. */
+      body{width:100% !important;} .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+      .ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass div,.ExternalClass span,.ExternalClass font{line-height:100%;}
+      body{-webkit-text-size-adjust:none;} /* Prevent Webkit platforms from changing default text sizes. */
+      table{mso-table-lspace:0pt;mso-table-rspace:0pt;}
+      p,a,li,td,blockquote{mso-line-height-rule:exactly;}
+      p,a,li,td,body,table,blockquote{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+
+      a[x-apple-data-detectors]{color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important;}
+
+      /* Reset Styles */
+      body{margin:0; padding:0;}
+     p{margin:10px 0; padding:0;}
+      h1,h2,h3,h4,h5,h6{display:block; margin:0; padding:0;}
+      img,a img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+      table td{border-collapse:collapse;}
+      #backgroundTable{height:100% !important; margin:0; padding:0; width:100% !important;}
+      a[href^=tel],a[href^=sms]{color:inherit; cursor:default; text-decoration:none;}
+
+      /* Template Styles */
+
+      /* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: COMMON PAGE ELEMENTS /\/\/\/\/\/\/\/\/\/\ */
+
+      /**
+      * @tab Page
+      * @section background color
+      * @tip Set the background color for your email. You may want to choose one that matches your company's branding.
+      * @theme page
+      */
+      body, #backgroundTable{
+        /*@editable*/ background-color:#FAFAFA;
+      }
+
+      #backgroundCell{
+        padding: 10px;
+      }
+
+      /**
+      * @tab Page
+      * @section email border
+      * @tip Set the border for your email.
+      */
+      #templateContainer{
+        /*@editable*/ border: 1px solid #DDDDDD;
+      }
+
+     /**
+      * @tab Page
+      * @section heading 1
+      * @tip Set the styling for all first-level headings in your emails. These should be the largest of your headings.
+      * @style heading 1
+      */
+      h1{
+        /*@editable*/ color:inherit;
+        display:block;
+        /*@editable*/ font-family:inherit;
+        /*@editable*/ font-size:34px;
+        /*@editable*/ font-weight:bold;
+        /*@editable*/ line-height:100%;
+        margin-top:0;
+        margin-right:0;
+        margin-bottom:10px;
+        margin-left:0;
+        /*@editable*/ text-align:left;
+        /*@editable*/ letter-spacing: normal;
+      }
+
+      /**
+      * @tab Page
+      * @section heading 2
+      * @tip Set the styling for all second-level headings in your emails.
+      * @style heading 2
+      */
+      h2{
+        /*@editable*/ color:inherit;
+        display:block;
+        /*@editable*/ font-family:inherit;
+        /*@editable*/ font-size:30px;
+        /*@editable*/ font-weight:bold;
+        /*@editable*/ line-height:100%;
+        margin-top:0;
+        margin-right:0;
+        margin-bottom:10px;
+        margin-left:0;
+        /*@editable*/ text-align:left;
+        /*@editable*/ letter-spacing: normal;
+      }
+
+      /**
+      * @tab Page
+      * @section heading 3
+      * @tip Set the styling for all third-level headings in your emails.
+      * @style heading 3
+      */
+      h3{
+        /*@editable*/ color:inherit;
+        display:block;
+        /*@editable*/ font-family:inherit;
+        /*@editable*/ font-size:26px;
+        /*@editable*/ font-weight:bold;
+        /*@editable*/ line-height:100%;
+        margin-top:0;
+        margin-right:0;
+        margin-bottom:10px;
+        margin-left:0;
+        /*@editable*/ text-align:left;
+        /*@editable*/ letter-spacing: normal;
+      }
+
+      /**
+      * @tab Page
+      * @section heading 4
+      * @tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.
+      * @style heading 4
+      */
+      h4{
+        /*@editable*/ color:inherit;
+        display:block;
+        /*@editable*/ font-family:inherit;
+        /*@editable*/ font-size:22px;
+        /*@editable*/ font-weight:bold;
+        /*@editable*/ line-height:100%;
+        margin-top:0;
+        margin-right:0;
+        margin-bottom:10px;
+        margin-left:0;
+        /*@editable*/ text-align:left;
+        /*@editable*/ letter-spacing: normal;
+      }
+
+      /* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: PREHEADER /\/\/\/\/\/\/\/\/\/\ */
+
+      /**
+      * @tab Header
+      * @section preheader style
+      * @tip Set the background color for your email's preheader area.
+      * @theme page
+      */
+      #templatePreheader{
+        /*@editable*/ background-color:#FAFAFA;
+      }
+
+      /**
+      * @tab Header
+      * @section preheader text
+      * @tip Set the styling for your email's preheader text. Choose a size and color that is easy to read.
+      */
+      .preheaderContent .bceTextContent{
+        /*@editable*/ color:#505050;
+        /*@editable*/ font-family:Arial;
+        /*@editable*/ font-size:10px;
+        /*@editable*/ line-height:100%;
+        /*@editable*/ text-align:left;
+      }
+
+      /**
+      * @tab Header
+      * @section preheader link
+      * @tip Set the styling for your email's preheader links. Choose a color that helps them stand out from your text.
+      */
+      .preheaderContent .bceTextContent a:link, .preheaderContent .bceTextContent a:visited, /* Yahoo! Mail Override */ .preheaderContent .bceTextContent a .yshortcuts /* Yahoo! Mail Override */{
+        /*@editable*/ color:#336699;
+        /*@editable*/ font-weight:normal;
+        /*@editable*/ text-decoration:underline;
+      }
+
+
+
+      /* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: HEADER /\/\/\/\/\/\/\/\/\/\ */
+
+      /**
+      * @tab Header
+      * @section header style
+      * @tip Set the background color and border for your email's header area.
+      * @theme header
+      */
+      #templateHeader{
+        /*@editable*/ background-color:#FFFFFF;
+        /*@editable*/ border-bottom:0;
+      }
+
+      /**
+      * @tab Header
+      * @section header text
+      * @tip Set the styling for your email's header text. Choose a size and color that is easy to read.
+      */
+      .headerContent{
+        /*@editable*/ color:#202020;
+        /*@editable*/ font-family:Arial;
+        /*@editable*/ font-size:34px;
+        /*@editable*/ font-weight:bold;
+        /*@editable*/ line-height:100%;
+        /*@editable*/ padding:0;
+        /*@editable*/ text-align:center;
+        /*@editable*/ vertical-align:middle;
+      }
+
+      /**
+      * @tab Header
+      * @section header link
+      * @tip Set the styling for your email's header links. Choose a color that helps them stand out from your text.
+      */
+      .headerContent a:link, .headerContent a:visited, /* Yahoo! Mail Override */ .headerContent a .yshortcuts /* Yahoo! Mail Override */{
+        /*@editable*/ color:#336699;
+        /*@editable*/ font-weight:normal;
+        /*@editable*/ text-decoration:underline;
+      }
+
+      #headerImage{
+        height:auto;
+        max-width:600px;
+      }
+
+      \/* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: MAIN BODY /\/\/\/\/\/\/\/\/\/\ */
+
+      /**
+      * @tab Body
+      * @section body style
+      * @tip Set the background color for your email's body area.
+      */
+      #templateContainer, .bodyContent{
+        /*@editable*/ background-color:#FFFFFF;
+        /*@editable*/ border-top:0;
+        /*@editable*/ border-bottom:0;
+      }
+
+      .bodyContent{
+        /*@editable*/ padding-top:9px;
+        /*@editable*/ padding-bottom:0;
+      }
+
+      /**
+      * @tab Body
+      * @section body text
+      * @tip Set the styling for your email's main content text. Choose a size and color that is easy to read.
+      * @theme main
+      */
+      .bodyContent .bceTextContent{
+        /*@editable*/ color:#505050;
+        /*@editable*/ font-family:Arial;
+        /*@editable*/ font-size:14px;
+        /*@editable*/ line-height:150%;
+        /*@editable*/ text-align:left;
+      }
+
+      /**
+      * @tab Body
+      * @section body link
+      * @tip Set the styling for your email's main content links. Choose a color that helps them stand out from your text.
+      */
+      .bodyContent .bceTextContent a:link, .bodyContent .bceTextContent a:visited, /* Yahoo! Mail Override */ .bodyContent .bceTextContent a .yshortcuts /* Yahoo! Mail Override */{
+        /*@editable*/ color:#336699;
+        /*@editable*/ font-weight:normal;
+        /*@editable*/ text-decoration:underline;
+      }
+
+      .bodyContent img{
+        display:inline;
+        height:auto;
+      }
+
+      /* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: COLUMNS; LEFT, CENTER, RIGHT /\/\/\/\/\/\/\/\/\/\ */
+
+      /**
+      * @tab Columns
+      * @section left column text
+      * @tip Set the styling for your email's left column text. Choose a size and color that is easy to read.
+      */
+      .leftColumnContent{
+        /*@editable*/ background-color:#FFFFFF;
+      }
+
+      /**
+      * @tab Columns
+      * @section left column text
+      * @tip Set the styling for your email's left column text. Choose a size and color that is easy to read.
+      */
+      .leftColumnContent .bceTextContent{
+        /*@editable*/ color:#505050;
+        /*@editable*/ font-family:Arial;
+        /*@editable*/ font-size:14px;
+        /*@editable*/ line-height:150%;
+        /*@editable*/ text-align:left;
+      }
+
+      /**
+      * @tab Columns
+      * @section left column link
+      * @tip Set the styling for your email's left column links. Choose a color that helps them stand out from your text.
+      */
+      .leftColumnContent .bceTextContent a:link, .leftColumnContent .bceTextContent a:visited, /* Yahoo! Mail Override */ .leftColumnContent .bceTextContent a .yshortcuts /* Yahoo! Mail Override */{
+        /*@editable*/ color:#336699;
+        /*@editable*/ font-weight:normal;
+        /*@editable*/ text-decoration:underline;
+      }
+
+      .leftColumnContent img{
+        display:inline;
+        height:auto;
+      }
+
+      /**
+      * @tab Columns
+      * @section center column text
+      * @tip Set the styling for your email's center column text. Choose a size and color that is easy to read.
+      */
+      .centerColumnContent{
+        /*@editable*/ background-color:#FFFFFF;
+      }
+
+      /**
+      * @tab Columns
+      * @section center column text
+      * @tip Set the styling for your email's center column text. Choose a size and color that is easy to read.
+      */
+      .centerColumnContent .bceTextContent{
+        /*@editable*/ color:#505050;
+        /*@editable*/ font-family:Arial;
+        /*@editable*/ font-size:14px;
+        /*@editable*/ line-height:150%;
+        /*@editable*/ text-align:left;
+      }
+
+      /**
+      * @tab Columns
+      * @section center column link
+      * @tip Set the styling for your email's center column links. Choose a color that helps them stand out from your text.
+      */
+      .centerColumnContent .bceTextContent a:link, .centerColumnContent .bceTextContent a:visited, /* Yahoo! Mail Override */ .centerColumnContent .bceTextContent a .yshortcuts /* Yahoo! Mail Override */{
+        /*@editable*/ color:#336699;
+        /*@editable*/ font-weight:normal;
+        /*@editable*/ text-decoration:underline;
+      }
+
+      .leftColumnContent img{
+        display:inline;
+        height:auto;
+      }
+
+      /**
+      * @tab Columns
+      * @section right column text
+      * @tip Set the styling for your email's right column text. Choose a size and color that is easy to read.
+      */
+      .rightColumnContent{
+        /*@editable*/ background-color:#FFFFFF;
+      }
+
+      /**
+      * @tab Columns
+      * @section right column text
+      * @tip Set the styling for your email's right column text. Choose a size and color that is easy to read.
+      */
+      .rightColumnContent .bceTextContent{
+        /*@editable*/ color:#505050;
+        /*@editable*/ font-family:Arial;
+        /*@editable*/ font-size:14px;
+        /*@editable*/ line-height:150%;
+        /*@editable*/ text-align:left;
+      }
+
+      /**
+      * @tab Columns
+      * @section right column link
+      * @tip Set the styling for your email's right column links. Choose a color that helps them stand out from your text.
+      */
+      .rightColumnContent .bceTextContent a:link, .rightColumnContent .bceTextContent a:visited, /* Yahoo! Mail Override */ .rightColumnContent .bceTextContent a .yshortcuts /* Yahoo! Mail Override */{
+        /*@editable*/ color:#336699;
+        /*@editable*/ font-weight:normal;
+        /*@editable*/ text-decoration:underline;
+      }
+
+      .rightColumnContent img{
+        display:inline;
+        height:auto;
+      }
+
+      /* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: FOOTER /\/\/\/\/\/\/\/\/\/\ */
+
+      /**
+      * @tab Footer
+      * @section footer style
+      * @tip Set the background color and top border for your email's footer area.
+      * @theme footer
+      */
+      #templateFooter{
+        /*@editable*/ background-color:#FFFFFF;
+        /*@editable*/ border-top:0;
+      }
+
+      /**
+      * @tab Footer
+      * @section footer text
+      * @tip Set the styling for your email's footer text. Choose a size and color that is easy to read.
+      * @theme footer
+      */
+      .footerContent .bceTextContent{
+        /*@editable*/ color:#707070;
+        /*@editable*/ font-family:Arial;
+        /*@editable*/ font-size:12px;
+        /*@editable*/ line-height:125%;
+        /*@editable*/ text-align:left;
+      }
+
+      /**
+      * @tab Footer
+      * @section footer link
+      * @tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
+      */
+      .footerContent .bceTextContent a:link, .footerContent .bceTextContent a:visited, /* Yahoo! Mail Override */ .footerContent .bceTextContent a .yshortcuts /* Yahoo! Mail Override */{
+        /*@editable*/ color:#336699;
+        /*@editable*/ font-weight:normal;
+        /*@editable*/ text-decoration:underline;
+      }
+
+      .footerContent img{
+        display:inline;
+      }
+
+      /**
+      * @tab Footer
+      * @section social bar style
+      * @tip Set the background color and border for your email's footer social bar.
+      * @theme footer
+      */
+      #social{
+        /*@editable*/ background-color:#FAFAFA;
+        /*@editable*/ border:0;
+      }
+
+      /**
+      * @tab Footer
+      * @section social bar style
+      * @tip Set the background color and border for your email's footer social bar.
+      */
+      #social .bceTextContent{
+        /*@editable*/ text-align:center;
+      }
+
+      /**
+      * @tab Footer
+      * @section utility bar style
+      * @tip Set the background color and border for your email's footer utility bar.
+      * @theme footer
+      */
+      #utility{
+        /*@editable*/ background-color:#FFFFFF;
+        /*@editable*/ border:0;
+      }
+
+      /**
+      * @tab Footer
+      * @section utility bar style
+      * @tip Set the background color and border for your email's footer utility bar.
+      */
+      #utility .bceTextContent{
+        /*@editable*/ text-align:center;
+      }
+
+      /**
+      * Block specific styles
+      */
+      .bceBlockDivider, .bceBlockCode {
+        min-height: 12px;
+      }
+
+    </style>
+  <style type="text/css" class="bwvce-custom-styles">#backgroundTable{ background-color:#000000}
+</style><style type="text/css" class="bwvce-temp-custom-styles">#backgroundTable {background-color: #fffcfc;}#backgroundTable {background-color: #fdf7f7;}#backgroundTable {background-color: #432121;}#backgroundTable {background-color: #000000;}#backgroundTable {background-color: #000000;}#backgroundTable {background-color: #000000;}#backgroundTable {background-color: #000000;}#backgroundTable {background-color: #000000;}#backgroundTable {background-color: #000000;}#backgroundTable {background-color: #000000;}#backgroundTable {background-color: #000000;}#backgroundTable {background-color: #000000;}#backgroundTable {background-color: #000000;}</style></head>
+  <body style="height:100%" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+    <center style="height:100%">
+      <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable" class="">
+        <tbody><tr>
+          <td align="center" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateContainer" class="">
+              <tbody><tr>
+                <td align="center" valign="top">
+                  </td>
+                    </tr>
+                  </tbody></table>
+                  <!-- // End Template Header \\ -->
+                </td>
+              </tr>
+              <tr style="height:100%">
+                <td align="center" valign="top" style="height:100%">
+                  <!-- // Begin Template Body \\ -->
+                  <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody" style="height:100%">
+                    <tbody><tr>
+                      <td colspan="3" valign="top" class="bodyContent" bwvce:dnd-container="1" bwvce:dnd-container-label="Body" style="height:100%">
+                        
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockDivider bce-sortable-item" style="min-width:100%;"><tbody class="bceBlockDividerOuter"><tr><td class="bceBlockDividerInner" valign="top" style="min-width:100%; padding:18px;"><table class="bceDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top: 2px solid #EAEAEA;"><tbody><tr><td><span></span></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockText bce-sortable-item"><tbody><tr><td valign="top" class="bceBlockTextInner" style="padding: 20px;"><div class="bceTextContent" style="position: relative;"><h1 style="text-align: center; position: relative;"><strong><span style="background-color:#ff0000;"><span style="color:#ff0000;"><span style="background-color:#000000;">&gt;&gt;&gt;&gt;&gt; </span><span><span><span style="background-color:#000000;">PRODUÇÃO</span></span></span><span style="background-color:#000000;"> &lt;&lt;&lt;&lt;&lt;</span></span></span></strong></h1></div></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockDivider bce-sortable-item" style="min-width:100%;"><tbody class="bceBlockDividerOuter"><tr><td class="bceBlockDividerInner" valign="top" style="min-width:100%; padding:18px;"><table class="bceDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top: 2px solid #EAEAEA;"><tbody><tr><td><span></span></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockButton bce-sortable-item" style="min-width:100%;"><tbody class="bceBlockButtonOuter"><tr><td style="padding: 0 18px;" valign="top" align="center" class="bceBlockButtonInner"><table border="0" cellpadding="0" cellspacing="0" class="bceButtonContentContainer" style="border-collapse: separate !important; border: 2px none rgb(124, 22, 22); border-radius: 3px; background-color: rgb(67, 82, 88);" width="100%"><tbody><tr><td align="center" valign="middle" class="bceButtonContent" style="padding: 15px;"><a class="bceButton bceTextContent" title="arthur.santos@bytalk.com" href="https://sanityqa.000webhostapp.com/bt01.html" style="font-family: Arial; font-size: 16px; font-weight: bold; letter-spacing: normal; line-height: 100%; text-align: center; text-decoration: none; color: rgb(255, 255, 255);">arthur.santos@bytalk.com</a></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockButton bce-sortable-item" style="min-width:100%;"><tbody class="bceBlockButtonOuter"><tr><td style="padding: 0 18px;" valign="top" align="center" class="bceBlockButtonInner"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceButtonContentContainer" style="border-collapse: separate !important; border: 2px none rgb(124, 22, 22); border-radius: 3px; background-color: rgb(67, 82, 88);"><tbody><tr></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockDivider bce-sortable-item" style="min-width:100%;"><tbody class="bceBlockDividerOuter"><tr><td class="bceBlockDividerInner" valign="top" style="min-width:100%; padding:18px;"><table class="bceDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top: 2px solid #EAEAEA;"><tbody><tr><td><span></span></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockButton bce-sortable-item bwvce-duplicated" style="min-width:100%;" id="bwvce-duplicated-1610976058980" data-original-path="html > body > center > table > tbody > tr:eq(1) > td > table > tbody > tr:eq(0) > td > table:eq(1)" data-original-el-class="bwvce-cl-1610976057534"><tbody class="bceBlockButtonOuter"><tr><td style="padding: 0 18px;" valign="top" align="center" class="bceBlockButtonInner"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceButtonContentContainer" style="border-collapse: separate !important; border: 2px none rgb(124, 22, 22); border-radius: 3px; background-color: rgb(67, 82, 88);"><tbody><tr><td align="center" valign="middle" class="bceButtonContent" style="padding: 15px;"><a class="bceButton bceTextContent" title="arthur.santos+2021@bytalk.com" href="https://sanityqa.000webhostapp.com/bt2021.html" style="font-family: Arial; font-size: 16px; font-weight: bold; letter-spacing: normal; line-height: 100%; text-align: center; text-decoration: none; color: rgb(255, 255, 255);">arthur.santos+2021@bytalk.com</a></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockDivider bce-sortable-item" style="min-width:100%;"><tbody class="bceBlockDividerOuter"><tr><td class="bceBlockDividerInner" valign="top" style="min-width:100%; padding:18px;"><table class="bceDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top: 2px solid #EAEAEA;"><tbody><tr><td><span></span></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockText bce-sortable-item"><tbody><tr><td valign="top" class="bceBlockTextInner" style="padding: 20px;"><div class="bceTextContent" style="position: relative;"><h1><span style="color:#ff0000;">&gt;&gt;&gt;&gt;&gt; DESENVOLVIMENTO &lt;&lt;&lt;&lt;&lt;</span></h1></div></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockDivider bce-sortable-item" style="min-width:100%;"><tbody class="bceBlockDividerOuter"><tr><td class="bceBlockDividerInner" valign="top" style="min-width:100%; padding:18px;"><table class="bceDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top: 2px solid #EAEAEA;"><tbody><tr><td><span></span></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockButton bce-sortable-item" style="min-width:100%;"><tbody class="bceBlockButtonOuter"><tr><td style="padding: 0 18px;" valign="top" align="center" class="bceBlockButtonInner"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceButtonContentContainer" style="border-collapse: separate !important; border: 2px none rgb(124, 22, 22); border-radius: 3px; background-color: rgb(67, 82, 88);"><tbody><tr><td align="center" valign="middle" class="bceButtonContent" style="padding: 15px;"><a class="bceButton bceTextContent" title="arthur.santos+2021@bytalk.com" href="https://sanityqa.000webhostapp.com/dev2021.html" style="font-family: Arial; font-size: 16px; font-weight: bold; letter-spacing: normal; line-height: 100%; text-align: center; text-decoration: none; color: rgb(255, 255, 255);">arthur.santos+2021@bytalk.com</a></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockDivider bce-sortable-item" style="min-width:100%;"><tbody class="bceBlockDividerOuter"><tr><td class="bceBlockDividerInner" valign="top" style="min-width:100%; padding:18px;"><table class="bceDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top: 2px solid #EAEAEA;"><tbody><tr><td><span></span></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceBlockButton bce-sortable-item" style="min-width:100%;"><tbody class="bceBlockButtonOuter"><tr><td style="padding: 0 18px;" valign="top" align="center" class="bceBlockButtonInner"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="bceButtonContentContainer" style="border-collapse: separate !important; border: 2px none rgb(124, 22, 22); border-radius: 3px; background-color: rgb(67, 82, 88);"><tbody><tr><td align="center" valign="middle" class="bceButtonContent" style="padding: 15px;"><a class="bceButton bceTextContent" title="Buy Now" href="http://#" style="font-family: Arial; font-size: 16px; font-weight: bold; letter-spacing: normal; line-height: 100%; text-align: center; text-decoration: none; color: rgb(255, 255, 255);">Buy Now</a></td></tr></tbody></table></td></tr></tbody></table></td>
+                    </tr>
+                    <tr width="600">
+                      
+                    </tr>
+                  </tbody></table>
+                  <!-- // End Template Body \\ -->
+                </td>
+              </tr>
+              <tr>
+                <td align="center" valign="top">
+                </td>
+              </tr>
+            </tbody></table>
+            <br>
+          
+        
+      
+    </center>
+  
+</body></html>
