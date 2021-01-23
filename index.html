@@ -3,6 +3,7 @@
 
 <head>
   <title>My Web Page!</title>
+  <script src="javascript.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <style>
@@ -40,6 +41,12 @@
     h2 {
       padding: 5px;
     }
+
+    h6 {
+      font-family: cursive;
+      font-size: 18px;
+    }
+
   </style>
 </head>
 
@@ -49,6 +56,13 @@
       KóS Quality Assurance
     </h1>
   </div>
+  <div class="row justify-content-center">
+    <h6 id="quoteDisplay" class="col-lg-6 col-sm-12">
+      <script>
+      window.onload = newQuote();
+      </script>
+    </div>
+
   <div class="container" style="text-align:center">
     <h2>Production</h2>
     <div class="row">
