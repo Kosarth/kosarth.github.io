@@ -1,4 +1,3 @@
-
 let quotes = [
         '"When you talk, you are only repeating what you already know. But when you listen, you may learn something new." ~ The Dalai Lama',
         '"Success is how high you bounce when you hit the bottom." ~ General George S. Patton',
@@ -17,12 +16,11 @@ function newQuote() {
         document.getElementById('quoteDisplay').innerHTML = 'Quote: <br><br>' + quotes[randomNumber];
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
         let pair = ["BTCBRL", "BTCEUR", "BNBBRL", "BNBEUR", "ADABRL", "ADAEUR", "ETHBRL", "ETHEUR", "BUSDBRL", "EURBUSD", "USDTBRL", "EURUSDT", "LINKBRL", "LINKEUR", "LTCBRL", "LTCEUR", "XRPBRL", "XRPEUR"];
         for (i = 0; i < pair.length; i++) {
-                console.log(pair[i]);
 
-                $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol='+pair[i], function(data) {        
+                $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + pair[i], function (data) {
                         // let value = $.number(data.price, 2);
                         let value = data.price;
                         $('#pair').append('<li id=' + data.symbol + '>Cotação ' + data.symbol + ' = ' + value + '</li>');
@@ -30,4 +28,3 @@ $(document).ready(function() {
                 });
         }
 });
-       
