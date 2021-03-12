@@ -3,55 +3,10 @@
 
 <head>
   <title>KóS QA</title>
-  <script src="javascript.js"></script>
-  <meta name="viewport" content="width=device-width" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <style>
-    body {
-      background-color: gray;
-    }
-
-    .row>div {
-      padding: 20px;
-      background-color: teal;
-      border: 2px solid black;
-    }
-
-    a {
-      color: white;
-      font-size: 20px;
-      text-align: center;
-    }
-
-    .container {
-      padding: 50px;
-    }
-
-    .center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 40%;
-    }
-
-    h1 {
-      font-family: Cursive;
-      font-size: 48px;
-      font-weight: bold;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h2 {
-      padding: 5px;
-    }
-
-    h6 {
-      padding: 5px;
-      font-family: arial;
-      font-size: 16px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="/js/scripts.js"></script>
+  <meta name="viewport" content="width=device-width"/>
 </head>
 
 <body>
@@ -61,6 +16,8 @@
     </h1>
   </div>
   <div class="row justify-content-center">
+    <p id="demo"></p>
+
     <h6 id="quoteDisplay" class="col-lg-6 col-sm-4">
       <script>
         window.onload = newQuote();
@@ -103,6 +60,34 @@
   <div>
     <img src="img/kos_qa1.png" alt="Kos QA" class="center">
   </div>
+  <!-- <div class="row justify-content-center">
+    <h5 id="brltoeur" class="col-lg-6 col-sm-4">
+      <ul>
+        <li id="BTCBRL"></li>
+        <li id="BTCEUR"></li>
+        <li id="BNBBRL"></li>
+        <li id="BNBEUR"></li>
+        <li id="DOGEBRL"></li>
+        <li id="DOGEEUR"></li>
+        <li id="ETHBRL"></li>
+        <li id="ETHEUR"></li>
+        <li id="BUSDBRL"></li>
+        <li id="EURBUSD"></li>
+        <li id="USDTBRL"></li>
+        <li id="EURUSDT"></li>
+        <li id="LINKBRL"></li>
+        <li id="LINKEUR"></li>
+        <li id="LTCBRL"></li>
+        <li id="LTCEUR"></li>
+        <li id="XRPBRL"></li>
+        <li id="XRPEUR"></li>
+      </ul>
+      <script>
+        window.onload = aks();
+      </script>
+  </div> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,44 @@
+body {
+    background-color: gray;
+  }
+
+  .row>div {
+    padding: 20px;
+    background-color: teal;
+    border: 2px solid black;
+  }
+
+  a {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .container {
+    padding: 50px;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+
+  h1 {
+    font-family: Cursive;
+    font-size: 48px;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+  }
+
+  h2 {
+    padding: 5px;
+  }
+
+  h6 {
+    padding: 5px;
+    font-family: arial;
+    font-size: 16px;
+  }
