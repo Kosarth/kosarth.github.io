@@ -1,3 +1,4 @@
+
 let quotes = [
         '"When you talk, you are only repeating what you already know. But when you listen, you may learn something new." ~ The Dalai Lama',
         '"Success is how high you bounce when you hit the bottom." ~ General George S. Patton',
@@ -16,41 +17,17 @@ function newQuote() {
         document.getElementById('quoteDisplay').innerHTML = 'Quote: <br><br>' + quotes[randomNumber];
 }
 
-        $(document).ready(function() {
-                $("#demo").html("Hello, World!");
-            });
-        // all custom jQuery will go here
-        // $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=ADAEUR', function(data) {
-        //         console.log(data);
-        // })
-// let pairs = ["BTCBRL", "BTCEUR", "BNBBRL", "BNBEUR", "DOGEBRL", "DOGEEUR", "ETHBRL", "ETHEUR", "BUSDBRL", "EURBUSD", "USDTBRL", "EURUSDT", "LINKBRL", "LINKEUR", "LTCBRL", "LTCEUR", "XRPBRL", "XRPEUR"];
-// let requestURL = "https://api.binance.com/api/v3/ticker/price?symbol=";
-// let request = new XMLHttpRequest();
+$(document).ready(function() {
+        let pair = ["BTCBRL", "BTCEUR", "BNBBRL", "BNBEUR", "ADABRL", "ADAEUR", "ETHBRL", "ETHEUR", "BUSDBRL", "EURBUSD", "USDTBRL", "EURUSDT", "LINKBRL", "LINKEUR", "LTCBRL", "LTCEUR", "XRPBRL", "XRPEUR"];
+        for (i = 0; i < pair.length; i++) {
+                console.log(pair[i]);
 
-// function aks() {
-//         for (i = 0; i < pairs.length; i++) {
-//                 request.open('GET', requestURL+pairs[i]);
-//                 request.responseType = 'json';
-//                 request.send();
-//                 function price() {
-//                         let response = request.response;
-//                         console.log(response);
-//                 }
-//                 price();
-//                 document.getElementById((pairs[i])).innerHTML = pairs[i] + " → " + response;
+                $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol='+pair[i], function(data) {        
+                        // let value = $.number(data.price, 2);
+                        let value = data.price;
+                        $('#pair').append('<li id=' + data.symbol + '>Cotação ' + data.symbol + ' = ' + value + '</li>');
 
-//         }
-// }
-
-// var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
-// var request = new XMLHttpRequest();
-// request.open('GET', requestURL);
-// request.responseType = 'json';
-// request.send();
-// request.onload = function() {
-//         var superHeroes = request.response;
-//         console.log(request)
-//         console.log(request.response)
-//         populateHeader(superHeroes);
-//         showHeroes(superHeroes);
-//       }
+                });
+        }
+});
+       
