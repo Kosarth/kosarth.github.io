@@ -17,17 +17,27 @@ function newQuote() {
 }
 
 $(document).ready(function () {
-        let pair = ["BTCBRL", "BTCEUR", "ETHBRL", "ETHEUR","ADABRL", "ADAEUR","LINKBRL", "LINKEUR","XRPBRL", "XRPEUR","BNBBRL", "BNBEUR", "BUSDBRL", "EURBUSD", "USDTBRL", "EURUSDT",  "LTCBRL", "LTCEUR"];
-        for (i = 0; i < pair.length; i++) {
-
-                $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + pair[i], function (data) {
-                        let value = parseFloat(data.price).toFixed(2);
-                        $('#' + data.symbol).append('€ ' + value);
-                        $('#pair').append('<li id=' + data.symbol + '>Cotação ' + data.symbol + ' = ' + value + '</li>');
-
-                });
-        }
         $(function() {
                 $("#cryptoTable").tablesorter();
               });
+
+        // --- add bullet list at bottom of html with pairs inside 'pair' array
+        //let pair = ["BTCBRL", "BTCEUR", "ETHBRL", "ETHEUR","ADABRL", "ADAEUR","LINKBRL", "LINKEUR","XRPBRL", "XRPEUR","BNBBRL", "BNBEUR", "BUSDBRL", "EURBUSD", "USDTBRL", "EURUSDT",  "LTCBRL", "LTCEUR"];
+        // for (i = 0; i < pair.length; i++) {
+        //         $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + pair[i], function (data) {
+        //                 let value = parseFloat(data.price).toFixed(2);
+        //                 $('#pair').append('<li id=' + data.symbol + '>Cotação ' + data.symbol + ' = ' + value + '</li>');
+        //         });
+        // }
+
+        let investedCoins = ['ADAEUR', 'ETHEUR', 'LINKEUR', 'XRPEUR', 'XEMUSDT'];
+        for (i = 0; i < investedCoins.length; i++) {
+                $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + investedCoins[i], function (data) {
+                        let value = parseFloat(data.price).toFixed(2);
+                        $('#cryptoTable').append('<tr role="row"><td>' + data.symbol + '</td><td>13.000,00</td><td>€ 4.538,46</td><td>R$ 6,652</td><td>1.503,30</td><td>€ 4,03</td><td id="' + data.symbol + '"></td></tr>')
+                        $('#' + data.symbol).append('€ ' + value);
+                        //$('#pair').append('<li id=' + data.symbol + '>Cotação ' + data.symbol + ' = ' + value + '</li>');
+                });
+        }
+
 });
