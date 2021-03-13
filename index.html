@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
   <script src="/js/scripts.js"></script>
   <meta name="viewport" content="width=device-width"/>
 </head>
@@ -59,8 +60,62 @@
   <div>
     <img src="img/kos_qa1.png" alt="Kos QA" class="center">
   </div>
+  
+  <table id="cryptoTable" class="cryptotable">
+    <thead>
+      <tr>
+        <th>TICKER</th>
+        <th>R$ VALUE</th>
+        <th>R$ / 6,5</th>
+        <th>HOW MUCH</th>
+        <th>HOW MANY</th>
+        <th>EQV €</th>
+        <th>CURRENT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ADA</td>
+        <td>10.000,00</td>
+        <td>€ 1.538,46</td>
+        <td>R$ 6,652</td>
+        <td>1.503,30</td>
+        <td>€ 1,03</td>
+        <td id="ADAEUR"></td>
+      </tr>
+      <tr>
+        <td>BDA</td>
+        <td>11.000,00</td>
+        <td>€ 2.538,46</td>
+        <td>R$ 6,652</td>
+        <td>1.503,30</td>
+        <td>€ 2,03</td>
+        <td id="ADAEUR"></td>
+      </tr>
+      <tr>
+        <td>CDA</td>
+        <td>12.000,00</td>
+        <td>€ 3.538,46</td>
+        <td>R$ 6,652</td>
+        <td>1.503,30</td>
+        <td>€ 3,03</td>
+        <td id="ADAEUR"></td>
+      </tr>
+      <tr>
+        <td>DDA</td>
+        <td>13.000,00</td>
+        <td>€ 4.538,46</td>
+        <td>R$ 6,652</td>
+        <td>1.503,30</td>
+        <td>€ 4,03</td>
+        <td id="ADAEUR"></td>
+      </tr>
+    </tbody>
+  </table>
+    
   <div class="row justify-content-center">
     <h5 id="brltoeur" class="col-lg-6 col-sm-4">
+      <p></p>
       <ul id='pair'>
       </ul>
   </div>

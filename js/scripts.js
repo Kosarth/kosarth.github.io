@@ -17,14 +17,17 @@ function newQuote() {
 }
 
 $(document).ready(function () {
-        let pair = ["BTCBRL", "BTCEUR", "BNBBRL", "BNBEUR", "ADABRL", "ADAEUR", "ETHBRL", "ETHEUR", "BUSDBRL", "EURBUSD", "USDTBRL", "EURUSDT", "LINKBRL", "LINKEUR", "LTCBRL", "LTCEUR", "XRPBRL", "XRPEUR"];
+        let pair = ["BTCBRL", "BTCEUR", "ETHBRL", "ETHEUR","ADABRL", "ADAEUR","LINKBRL", "LINKEUR","XRPBRL", "XRPEUR","BNBBRL", "BNBEUR", "BUSDBRL", "EURBUSD", "USDTBRL", "EURUSDT",  "LTCBRL", "LTCEUR"];
         for (i = 0; i < pair.length; i++) {
 
                 $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + pair[i], function (data) {
-                        // let value = $.number(data.price, 2);
-                        let value = data.price;
+                        let value = parseFloat(data.price).toFixed(2);
+                        $('#' + data.symbol).append('€ ' + value);
                         $('#pair').append('<li id=' + data.symbol + '>Cotação ' + data.symbol + ' = ' + value + '</li>');
 
                 });
         }
+        $(function() {
+                $("#cryptoTable").tablesorter();
+              });
 });

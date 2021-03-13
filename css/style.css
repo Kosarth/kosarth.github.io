@@ -3,7 +3,7 @@ body {
   }
 
   .row>div {
-    padding: 20px;
+    padding: 2px;
     background-color: teal;
     border: 2px solid black;
   }
@@ -42,3 +42,28 @@ body {
     font-family: arial;
     font-size: 16px;
   }
+
+  table {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  th, td {
+    padding: 5px;
+    border-bottom: 1px solid black;
+  }
+
+  tr:hover {background-color: darkgray;}
+
+  .cryptotable>thead {
+    text-align: center;
+  }
+
+  .cryptotable>tbody {
+    text-align: right;
+  }
+
+  .cryptotable>tbody>tr>:nth-child(1) {
+    text-align: center;
+  }  
