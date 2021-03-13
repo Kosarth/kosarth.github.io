@@ -17,9 +17,6 @@ function newQuote() {
 }
 
 $(document).ready(function () {
-        $(function() {
-                $("#cryptoTable").tablesorter();
-              });
 
         // --- add bullet list at bottom of html with pairs inside 'pair' array
         //let pair = ["BTCBRL", "BTCEUR", "ETHBRL", "ETHEUR","ADABRL", "ADAEUR","LINKBRL", "LINKEUR","XRPBRL", "XRPEUR","BNBBRL", "BNBEUR", "BUSDBRL", "EURBUSD", "USDTBRL", "EURUSDT",  "LTCBRL", "LTCEUR"];

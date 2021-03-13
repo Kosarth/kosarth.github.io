@@ -56,14 +56,14 @@ body {
 
   tr:hover {background-color: darkgray;}
 
-  .cryptotable>thead {
+  #cryptoTable>thead {
     text-align: center;
   }
 
-  .cryptotable>tbody {
+  #cryptoTable>tbody {
     text-align: right;
   }
 
-  .cryptotable>tbody>tr>:nth-child(1) {
+  #cryptoTable>tbody>tr>:nth-child(1) {
     text-align: center;
   }  
