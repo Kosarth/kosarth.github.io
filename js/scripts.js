@@ -31,10 +31,21 @@ $(document).ready(function () {
         // }
 
         let investedCoins = ['ADAEUR', 'ETHEUR', 'LINKEUR', 'XRPEUR', 'XEMUSDT'];
+        let brlValue = [10000, 20000, 10000, 10000, 10000];
+        let howMuch = [6.652, 10111.110, 169.590, 2.715, 3.66487];
+        let dividedByValue = 6.5;
+        let equivalent = [1.03, 1560, 26, 0.43, 0.64]
+
         for (i = 0; i < investedCoins.length; i++) {
+                let brl = parseFloat(brlValue[i]).toFixed(2);
+                let divideBy = parseFloat(brl / dividedByValue).toFixed(2);
+                let much = howMuch[i]
+                let howMany = parseFloat(brl / much).toFixed(3);
+                let equiv = parseFloat(equivalent[i]).toFixed(2);
+
                 $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + investedCoins[i], function (data) {
                         let value = parseFloat(data.price).toFixed(2);
-                        $('#cryptoTable').append('<tr role="row"><td>' + data.symbol + '</td><td>13.000,00</td><td>€ 4.538,46</td><td>R$ 6,652</td><td>1.503,30</td><td>€ 4,03</td><td id="' + data.symbol + '"></td></tr>')
+                        $('#cryptoTable').append('<tr><td>' + data.symbol + '</td><td>' + brl + '</td><td>€ ' + divideBy + '</td><td>R$ ' + much + '</td><td>' + howMany + '</td><td>€ ' + equiv + '</td><td id="' + data.symbol + '"></td></tr>')
                         $('#' + data.symbol).append('€ ' + value);
                         //$('#pair').append('<li id=' + data.symbol + '>Cotação ' + data.symbol + ' = ' + value + '</li>');
                 });
