@@ -8,7 +8,6 @@ let quotes = [
         '“We can be blind to the obvious and we are also blind to our blindness” ~ Daniel Kahneman',
         '“If the ladder is not leaning against the right wall, every step we take just gets us to the wrong place faster.” ~ Stephen R. Covey',
         '"Give a man a mask, and he will show you his true face." ~ Oscar Wilde'
-
 ];
 
 function newQuote() {
@@ -31,19 +30,27 @@ $(document).ready(function () {
         let brlValue = [10000, 20000, 10000, 10000, 10000];
         let howMuch = [6.652, 10111.110, 169.590, 1617.30, 3.6648];
         let dividedByValue = 6.5;
-        let equivalent = [1.03, 1560, 26, 248.11, 0.64]
+        let equivalent = [1.03, 1560, 26, 248.11, 0.64];
 
         function toBRL(value) {
                 return Number(value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-        }
+        };
 
         function toEUR(value) {
                 return Number(value).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
-        }
+        };
 
         function periodToComma(value) {
                 return Number(value).toLocaleString('de-DE');
-        }
+        };
+
+        function profitColor(id, value1, value2) {
+                if (value1 > value2) {
+                        return $('#profit' + id).css('color', 'darkred');
+                } else {
+                        return $('#profit' + id).css('color', 'darkgreen');
+                }
+        };
 
         for (i = 0; i < investedCoins.length; i++) {
                 let brl = parseFloat(brlValue[i]).toFixed(2);
@@ -54,11 +61,7 @@ $(document).ready(function () {
 
                 $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + investedCoins[i], function (data) {
                         let value = parseFloat(data.price).toFixed(2);
-                        let profit = parseFloat(value * howMany).toFixed(2);
-
-                        if (profit > profit) {
-                                profit = 123
-                        }
+                        let profit = parseFloat((value * howMany) - divideBy).toFixed(2);
 
                         $('#cryptoTable').append('<tr><td>' 
                                                 + data.symbol 
@@ -68,9 +71,10 @@ $(document).ready(function () {
                                                 + '</td><td>' + periodToComma(howMany)
                                                 + '</td><td>' + toEUR(equiv) 
                                                 + '</td><td id="' + data.symbol 
-                                                + '"></td><td>' + toEUR(profit) 
+                                                + '"></td><td id="profit' + data.symbol + '">' + toEUR(profit) 
                                                 + '</td></tr>');
                         $('#' + data.symbol).append(toEUR(value));
+                        profitColor(data.symbol, divideBy, profit);
                         //$('#pair').append('<li id=' + data.symbol + '>Cotação ' + data.symbol + ' = ' + value + '</li>');
                 });
         }
