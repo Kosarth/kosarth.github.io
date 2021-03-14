@@ -50,7 +50,7 @@ $(document).ready(function () {
                 let equiv = parseFloat(equivalent[i]).toFixed(2);
 
                 $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + investedCoins[i], function (data) {
-                        let value = parseFloat(data.price).toFixed(2);
+                        let value = parseFloat(data.price).toFixed(3);
                         let profit = parseFloat((value * howMany) - divideBy).toFixed(2);
 
                         $('#cryptoTable').append('<tr><td>' 
@@ -63,7 +63,7 @@ $(document).ready(function () {
                                                 + '</td><td id="' + data.symbol 
                                                 + '"></td><td id="profit' + data.symbol + '">' + toEUR(profit) 
                                                 + '</td></tr>');
-                        $('#' + data.symbol).append(toEUR(value));
+                        $('#' + data.symbol).append(periodToComma(value));
                         profitColor(data.symbol, divideBy, profit);
                 });
         }
