@@ -27,23 +27,50 @@ $(document).ready(function () {
         //         });
         // }
 
-        let investedCoins = ['ADAEUR', 'ETHEUR', 'LINKEUR', 'XRPEUR', 'XEMUSDT'];
+        let investedCoins = ['ADAEUR', 'ETHEUR', 'LINKEUR', 'BNBEUR', 'XEMUSDT'];
         let brlValue = [10000, 20000, 10000, 10000, 10000];
-        let howMuch = [6.652, 10111.110, 169.590, 2.715, 3.66487];
+        let howMuch = [6.652, 10111.110, 169.590, 1617.30, 3.6648];
         let dividedByValue = 6.5;
-        let equivalent = [1.03, 1560, 26, 0.43, 0.64]
+        let equivalent = [1.03, 1560, 26, 248.11, 0.64]
+
+        function toBRL(value) {
+                return Number(value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function toEUR(value) {
+                return Number(value).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+        }
+
+        function periodToComma(value) {
+                return Number(value).toLocaleString('de-DE');
+        }
 
         for (i = 0; i < investedCoins.length; i++) {
                 let brl = parseFloat(brlValue[i]).toFixed(2);
                 let divideBy = parseFloat(brl / dividedByValue).toFixed(2);
-                let much = howMuch[i]
-                let howMany = parseFloat(brl / much).toFixed(3);
+                let much = howMuch[i];
+                let howMany = parseFloat(brl / howMuch[i]).toFixed(3);
                 let equiv = parseFloat(equivalent[i]).toFixed(2);
 
                 $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + investedCoins[i], function (data) {
                         let value = parseFloat(data.price).toFixed(2);
-                        $('#cryptoTable').append('<tr><td>' + data.symbol + '</td><td>' + brl + '</td><td>€ ' + divideBy + '</td><td>R$ ' + much + '</td><td>' + howMany + '</td><td>€ ' + equiv + '</td><td id="' + data.symbol + '"></td></tr>')
-                        $('#' + data.symbol).append('€ ' + value);
+                        let profit = parseFloat(value * howMany).toFixed(2);
+
+                        if (profit > profit) {
+                                profit = 123
+                        }
+
+                        $('#cryptoTable').append('<tr><td>' 
+                                                + data.symbol 
+                                                + '</td><td>' + toBRL(brl) 
+                                                + '</td><td>' + toEUR(divideBy) 
+                                                + '</td><td>' + toBRL(much) 
+                                                + '</td><td>' + periodToComma(howMany)
+                                                + '</td><td>' + toEUR(equiv) 
+                                                + '</td><td id="' + data.symbol 
+                                                + '"></td><td>' + toEUR(profit) 
+                                                + '</td></tr>');
+                        $('#' + data.symbol).append(toEUR(value));
                         //$('#pair').append('<li id=' + data.symbol + '>Cotação ' + data.symbol + ' = ' + value + '</li>');
                 });
         }
