@@ -7,7 +7,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="/js/scripts.js"></script>
   <script src="/bin/sortable-0.8.0/js/sortable.min.js"></script>
-
   <meta name="viewport" content="width=device-width"/>
 </head>
 
@@ -17,13 +16,30 @@
       KóS Quality Assurance
     </h1>
   </div>
+  <div>
+    <table id="cryptoTable"  data-sortable>
+      <thead>
+        <tr>
+          <th>TICKER</th>
+          <th>R$ VALUE</th>
+          <th>R$ / 6,5</th>
+          <th>HOW MUCH</th>
+          <th>HOW MANY</th>
+          <th>EQV €</th>
+          <th>CURRENT</th>
+          <th>PROFIT</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
   <div class="row justify-content-center">
     <h6 id="quoteDisplay" class="col-lg-6 col-sm-4">
       <script>
         window.onload = newQuote();
       </script>
   </div>
-
   <div class="container" style="text-align:center">
     <h2>Production</h2>
     <div class="row">
@@ -58,29 +74,13 @@
     </div>
   </div>
   
-  <table id="cryptoTable"  data-sortable>
-    <thead>
-      <tr>
-        <th>TICKER</th>
-        <th>R$ VALUE</th>
-        <th>R$ / 6,5</th>
-        <th>HOW MUCH</th>
-        <th>HOW MANY</th>
-        <th>EQV €</th>
-        <th>CURRENT</th>
-        <th>PROFIT</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
   <div>
     <p>
 
     </p>
   </div>
   <div>
-    <img src="img/kos_qa1.png" alt="Kos QA" class="center">
+    <img src="img/kos_qa1.png" alt="Kos QA" class="img">
   </div>
   <div class="row justify-content-center">
     <h5 id="brltoeur" class="col-lg-6 col-sm-4">

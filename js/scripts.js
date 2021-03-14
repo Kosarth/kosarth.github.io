@@ -16,16 +16,6 @@ function newQuote() {
 }
 
 $(document).ready(function () {
-
-        // --- add bullet list at bottom of html with pairs inside 'pair' array
-        //let pair = ["BTCBRL", "BTCEUR", "ETHBRL", "ETHEUR","ADABRL", "ADAEUR","LINKBRL", "LINKEUR","XRPBRL", "XRPEUR","BNBBRL", "BNBEUR", "BUSDBRL", "EURBUSD", "USDTBRL", "EURUSDT",  "LTCBRL", "LTCEUR"];
-        // for (i = 0; i < pair.length; i++) {
-        //         $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + pair[i], function (data) {
-        //                 let value = parseFloat(data.price).toFixed(2);
-        //                 $('#pair').append('<li id=' + data.symbol + '>Cotação ' + data.symbol + ' = ' + value + '</li>');
-        //         });
-        // }
-
         let investedCoins = ['ADAEUR', 'ETHEUR', 'LINKEUR', 'BNBEUR', 'XEMUSDT'];
         let brlValue = [10000, 20000, 10000, 10000, 10000];
         let howMuch = [6.652, 10111.110, 169.590, 1617.30, 3.6648];
@@ -75,7 +65,6 @@ $(document).ready(function () {
                                                 + '</td></tr>');
                         $('#' + data.symbol).append(toEUR(value));
                         profitColor(data.symbol, divideBy, profit);
-                        //$('#pair').append('<li id=' + data.symbol + '>Cotação ' + data.symbol + ' = ' + value + '</li>');
                 });
         }
 
