@@ -51,7 +51,7 @@ $(document).ready(function () {
 
                 $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + investedCoins[i], function (data) {
                         let value = parseFloat(data.price).toFixed(3);
-                        let profit = parseFloat((value * howMany) - divideBy).toFixed(2);
+                        let profit = parseFloat((data.price * howMany) - (brl / dividedByValue)).toFixed(2);
 
                         $('#cryptoTable').append('<tr><td>' 
                                                 + data.symbol 
