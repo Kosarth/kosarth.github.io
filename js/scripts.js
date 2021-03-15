@@ -21,7 +21,7 @@ $(document).ready(function () {
         let howMuch = [6.652, 10111.110, 169.590, 1617.30, 3.6648];
         let dividedByValue = 6.5;
         let equivalent = [1.03, 1560, 26, 248.11, 0.64];
-
+        
         function toBRL(value) {
                 return Number(value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         };
@@ -53,7 +53,7 @@ $(document).ready(function () {
                         let value = parseFloat(data.price).toFixed(3);
                         let profit = parseFloat((data.price * howMany) - (brl / dividedByValue)).toFixed(2);
 
-                        $('#cryptoTable').append('<tr><td>' 
+                        $('#cryptoTable > tbody').append('<tr><td>' 
                                                 + data.symbol 
                                                 + '</td><td>' + toBRL(brl) 
                                                 + '</td><td>' + toEUR(divideBy) 
@@ -67,5 +67,60 @@ $(document).ready(function () {
                         profitColor(data.symbol, divideBy, profit);
                 });
         }
+        $('#cryptoTable').on('click', 'th', function sortTable(n) {
+                n = 0;
+                var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+                table = document.getElementById("cryptoTable");
+                switching = true;
+                // Set the sorting direction to ascending:
+                dir = "asc";
+                /* Make a loop that will continue until
+                no switching has been done: */
+                while (switching) {
+                  // Start by saying: no switching is done:
+                  switching = false;
+                  rows = table.rows;
+                  /* Loop through all table rows (except the
+                  first, which contains table headers): */
+                  for (i = 1; i < (rows.length - 1); i++) {
+                    // Start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /* Get the two elements you want to compare,
+                    one from current row and one from the next: */
+                    x = rows[i].getElementsByTagName("td")[n];
+                    y = rows[i + 1].getElementsByTagName("td")[n];
+                    /* Check if the two rows should switch place,
+                    based on the direction, asc or desc: */
+                    if (dir == "asc") {
+                      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                      }
+                    } else if (dir == "desc") {
+                      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                      }
+                    }
+                  }
+                  if (shouldSwitch) {
+                    /* If a switch has been marked, make the switch
+                    and mark that a switch has been done: */
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    // Each time a switch is done, increase this count by 1:
+                    switchcount ++;
+                  } else {
+                    /* If no switching has been done AND the direction is "asc",
+                    set the direction to "desc" and run the while loop again. */
+                    if (switchcount == 0 && dir == "asc") {
+                      dir = "desc";
+                      switching = true;
+                    }
+                  }
+                }
+              });
 
 });
