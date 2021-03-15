@@ -63,7 +63,7 @@ $(document).ready(function () {
                                                 + '</td><td id="' + data.symbol 
                                                 + '"></td><td id="profit' + data.symbol + '">' + toEUR(profit) 
                                                 + '</td></tr>');
-                        $('#' + data.symbol).append(toEur(value));
+                        $('#' + data.symbol).append(toEUR(value));
                         profitColor(data.symbol, divideBy, profit);
                 });
         }
