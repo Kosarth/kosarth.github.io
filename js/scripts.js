@@ -74,9 +74,10 @@ $(document).ready(function () {
                                                 
                                                 profitColor('#profit' + data.symbol, divideBy, profit);
                                                 profitColor('#eurvalue' + data.symbol, divideBy, eurValue);
+                                                sortTable(0);
                                         });
         }
-        $('#cryptoTable').on('click', 'th', function sortTable(n) {
+        function sortTable(n) {
                 n = 0;
                 var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
                 table = document.getElementById("cryptoTable");
@@ -130,6 +131,6 @@ $(document).ready(function () {
                     }
                   }
                 }
-              });
+              };
 
 });
