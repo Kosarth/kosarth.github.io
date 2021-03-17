@@ -16,11 +16,15 @@ function newQuote() {
 }
 
 $(document).ready(function () {
-        let investedCoins = ['ADAEUR', 'ETHEUR', 'LINKEUR', 'BNBEUR', 'XEMUSDT'];
+        let investedCoins = ['ADAEUR', 'ETHEUR', 'LINKEUR', 'ENJUSDT', 'XEMUSDT'];
+        // valor inicial usado em R$ para comprar
         let brlValue = [10000, 20000, 10000, 10000, 10000];
-        let howMuch = [6.652, 10111.110, 169.590, 1617.30, 3.6648];
+        // valor pelo qual foi realizado a compra em REAL
+        let howMuch = [6.652, 10111.110, 169.590, 16, 3.6648];
+        // parâmetro de comparação, dividir o valor inicial em R$ pela cotação do Euro
         let dividedByValue = 6.5;
-        let equivalent = [1.03, 1560, 26, 248.11, 0.64];
+        // valor mínimo necessário em euros para vender
+        let equivalent = [1.03, 1560, 26, 2.96, 0.68];
         
         function toBRL(value) {
                 return Number(value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -36,11 +40,13 @@ $(document).ready(function () {
 
         function profitColor(id, value1, value2) {
                 if (value1 > value2) {
-                        return $('#profit' + id).css('color', 'darkred');
+                        $(id).css('color', 'darkred');
                 } else {
-                        return $('#profit' + id).css('color', 'darkgreen');
+                        $(id).css('color', 'darkgreen');
                 }
         };
+
+        
 
         for (i = 0; i < investedCoins.length; i++) {
                 let brl = parseFloat(brlValue[i]).toFixed(2);
@@ -52,6 +58,7 @@ $(document).ready(function () {
                 $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + investedCoins[i], function (data) {
                         let value = parseFloat(data.price).toFixed(3);
                         let profit = parseFloat((data.price * howMany) - (brl / dividedByValue)).toFixed(2);
+                        let eurValue = parseFloat(data.price * howMany).toFixed(2);
 
                         $('#cryptoTable > tbody').append('<tr><td>' 
                                                 + data.symbol 
@@ -60,12 +67,14 @@ $(document).ready(function () {
                                                 + '</td><td>' + toBRL(much) 
                                                 + '</td><td>' + periodToComma(howMany)
                                                 + '</td><td>' + toEUR(equiv) 
-                                                + '</td><td id="' + data.symbol 
-                                                + '"></td><td id="profit' + data.symbol + '">' + toEUR(profit) 
+                                                + '</td><td id="' + data.symbol + '">' + toEUR(value)
+                                                + '</td><td id="eurvalue' + data.symbol + '">' + toEUR(eurValue)
+                                                + '</td><td id="profit' + data.symbol + '">' + toEUR(profit) 
                                                 + '</td></tr>');
-                        $('#' + data.symbol).append(toEUR(value));
-                        profitColor(data.symbol, divideBy, profit);
-                });
+                                                
+                                                profitColor('#profit' + data.symbol, divideBy, profit);
+                                                profitColor('#eurvalue' + data.symbol, divideBy, eurValue);
+                                        });
         }
         $('#cryptoTable').on('click', 'th', function sortTable(n) {
                 n = 0;
