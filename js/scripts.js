@@ -16,15 +16,15 @@ function newQuote() {
 }
 
 $(document).ready(function () {
-        let investedCoins = ['ADAEUR', 'ETHEUR', 'LINKEUR', 'ENJUSDT', 'XEMUSDT'];
+        let investedCoins = ['ETHEUR', 'LINKEUR', 'ENJUSDT', 'XEMUSDT'];
         // valor inicial usado em R$ para comprar
-        let brlValue = [10000, 20000, 10000, 10000, 10000];
+        let brlValue = [20000, 10000, 10000, 10000];
         // valor pelo qual foi realizado a compra em REAL
-        let howMuch = [6.652, 10111.110, 169.590, 16, 3.6648];
+        let howMuch = [10111.110, 169.590, 16, 3.6648];
         // parâmetro de comparação, dividir o valor inicial em R$ pela cotação do Euro
         let dividedByValue = 6.5;
         // valor mínimo necessário em euros para vender
-        let equivalent = [1.03, 1560, 26, 2.96, 0.68];
+        let equivalent = [1560, 26, 2.96, 0.68];
         
         function toBRL(value) {
                 return Number(value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
