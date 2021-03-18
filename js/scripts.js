@@ -40,13 +40,19 @@ $(document).ready(function () {
 
         function profitColor(id, value1, value2) {
                 if (value1 > value2) {
-                        $(id).css('color', 'darkred');
+                        return $(id).css('color', 'darkred');
                 } else {
-                        $(id).css('color', 'darkgreen');
+                        return $(id).css('color', 'darkgreen');
                 }
         };
 
-        
+        function negativeToRed(id, value1) {
+                if (value1 < 0) {
+                        return $(id).css('color', 'darkred');
+                } else {
+                        return $(id).css('color', 'darkgreen');
+                }
+        };    
 
         for (i = 0; i < investedCoins.length; i++) {
                 let brl = parseFloat(brlValue[i]).toFixed(2);
@@ -54,12 +60,12 @@ $(document).ready(function () {
                 let much = howMuch[i];
                 let howMany = parseFloat(brl / howMuch[i]).toFixed(3);
                 let equiv = parseFloat(equivalent[i]).toFixed(2);
-
+                
                 $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + investedCoins[i], function (data) {
                         let value = parseFloat(data.price).toFixed(3);
                         let profit = parseFloat((data.price * howMany) - (brl / dividedByValue)).toFixed(2);
-                        let eurValue = parseFloat(data.price * howMany).toFixed(2);
-
+                        let totalEur = parseFloat(data.price * howMany).toFixed(2);
+                        
                         $('#cryptoTable > tbody').append('<tr><td>' 
                                                 + data.symbol 
                                                 + '</td><td>' + toBRL(brl) 
@@ -68,14 +74,15 @@ $(document).ready(function () {
                                                 + '</td><td>' + periodToComma(howMany)
                                                 + '</td><td>' + toEUR(equiv) 
                                                 + '</td><td id="' + data.symbol + '">' + toEUR(value)
-                                                + '</td><td id="eurvalue' + data.symbol + '">' + toEUR(eurValue)
+                                                + '</td><td id="eurvalue' + data.symbol + '">' + toEUR(totalEur)
                                                 + '</td><td id="profit' + data.symbol + '">' + toEUR(profit) 
                                                 + '</td></tr>');
                                                 
-                                                profitColor('#profit' + data.symbol, divideBy, profit);
-                                                profitColor('#eurvalue' + data.symbol, divideBy, eurValue);
                                                 sortTable(0);
+                                                negativeToRed('#profit' + data.symbol, profit);
+                                                profitColor('#eurvalue' + data.symbol, divideBy, totalEur);
                                         });
+                
         }
         function sortTable(n) {
                 n = 0;
