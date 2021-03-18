@@ -16,25 +16,21 @@ function newQuote() {
 }
 
 $(document).ready(function () {
-        let investedCoins = ['ETHEUR', 'LINKEUR', 'ENJUSDT', 'XEMUSDT'];
-        // valor inicial usado em R$ para comprar
-        let brlValue = [20000, 10000, 10000, 10000];
-        // valor pelo qual foi realizado a compra em REAL
-        let howMuch = [10111.110, 169.590, 16, 3.6648];
-        // parâmetro de comparação, dividir o valor inicial em R$ pela cotação do Euro
-        let dividedByValue = 6.5;
-        // valor mínimo necessário em euros para vender
-        let equivalent = [1560, 26, 2.96, 0.68];
-        
         function toBRL(value) {
-                return Number(value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                return Number(value).toLocaleString('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                });
         };
 
         function toEUR(value) {
-                return Number(value).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+                return Number(value).toLocaleString('de-DE', {
+                        style: 'currency',
+                        currency: 'EUR'
+                });
         };
 
-        function periodToComma(value) {
+        function periodToComma(value) {
                 return Number(value).toLocaleString('de-DE');
         };
 
@@ -52,38 +48,52 @@ $(document).ready(function () {
                 } else {
                         return $(id).css('color', 'darkgreen');
                 }
-        };    
+        };
+
+        let investedCoins = ['ETHEUR', 'LINKEUR', 'ENJUSDT', 'XEMUSDT'];
+        // valor inicial usado em R$ para comprar
+        let brlValue = [20000, 10000, 10000, 10000];
+        // valor pelo qual foi realizado a compra em REAL
+        let howMuch = [10111.110, 169.590, 16, 3.6648];
+        // parâmetro de comparação, dividir o valor inicial em R$ pela cotação do Euro
+        let dividedByValue = 6.5;
+        // valor mínimo necessário em euros para vender
+        let equivalent = [1560, 26.001, 2.961, 0.681];
+        // tipo de moeda que pode ser vendida Euro € ou USDT
+        let currency = ['EUR', 'EUR', 'USDT', 'USDT'];
 
         for (i = 0; i < investedCoins.length; i++) {
                 let brl = parseFloat(brlValue[i]).toFixed(2);
                 let divideBy = parseFloat(brl / dividedByValue).toFixed(2);
                 let much = howMuch[i];
                 let howMany = parseFloat(brl / howMuch[i]).toFixed(3);
-                let equiv = parseFloat(equivalent[i]).toFixed(2);
-                
+                let equiv = parseFloat(equivalent[i]).toFixed(3);
+                let currency2 = currency[i];
+
                 $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + investedCoins[i], function (data) {
                         let value = parseFloat(data.price).toFixed(3);
-                        let profit = parseFloat((data.price * howMany) - (brl / dividedByValue)).toFixed(2);
+                        let profit = parseFloat((data.price * howMany) - (equiv * howMany)).toFixed(2);
                         let totalEur = parseFloat(data.price * howMany).toFixed(2);
-                        
-                        $('#cryptoTable > tbody').append('<tr><td>' 
-                                                + data.symbol 
-                                                + '</td><td>' + toBRL(brl) 
-                                                + '</td><td>' + toEUR(divideBy) 
-                                                + '</td><td>' + toBRL(much) 
-                                                + '</td><td>' + periodToComma(howMany)
-                                                + '</td><td>' + toEUR(equiv) 
-                                                + '</td><td id="' + data.symbol + '">' + toEUR(value)
-                                                + '</td><td id="eurvalue' + data.symbol + '">' + toEUR(totalEur)
-                                                + '</td><td id="profit' + data.symbol + '">' + toEUR(profit) 
-                                                + '</td></tr>');
-                                                
-                                                sortTable(0);
-                                                negativeToRed('#profit' + data.symbol, profit);
-                                                profitColor('#eurvalue' + data.symbol, divideBy, totalEur);
-                                        });
-                
+
+                        $('#cryptoTable > tbody').append('<tr><td>' + data.symbol +
+                                '</td><td>' + toBRL(brl) +
+                                '</td><td>' + periodToComma(divideBy) +
+                                '</td><td>' + toBRL(much) +
+                                '</td><td>' + periodToComma(howMany) +
+                                '</td><td>' + currency2 +
+                                '</td><td>' + periodToComma(equiv) +
+                                '</td><td id="' + data.symbol + '">' + periodToComma(value) +
+                                '</td><td id="eurvalue' + data.symbol + '">' + periodToComma(totalEur) +
+                                '</td><td id="profit' + data.symbol + '">' + periodToComma(profit) +
+                                '</td></tr>');
+
+                        sortTable(0);
+                        negativeToRed('#profit' + data.symbol, profit);
+                        profitColor('#eurvalue' + data.symbol, equiv * howMany, totalEur);
+                });
+
         }
+
         function sortTable(n) {
                 n = 0;
                 var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
@@ -94,50 +104,50 @@ $(document).ready(function () {
                 /* Make a loop that will continue until
                 no switching has been done: */
                 while (switching) {
-                  // Start by saying: no switching is done:
-                  switching = false;
-                  rows = table.rows;
-                  /* Loop through all table rows (except the
-                  first, which contains table headers): */
-                  for (i = 1; i < (rows.length - 1); i++) {
-                    // Start by saying there should be no switching:
-                    shouldSwitch = false;
-                    /* Get the two elements you want to compare,
-                    one from current row and one from the next: */
-                    x = rows[i].getElementsByTagName("td")[n];
-                    y = rows[i + 1].getElementsByTagName("td")[n];
-                    /* Check if the two rows should switch place,
-                    based on the direction, asc or desc: */
-                    if (dir == "asc") {
-                      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                      }
-                    } else if (dir == "desc") {
-                      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                      }
-                    }
-                  }
-                  if (shouldSwitch) {
-                    /* If a switch has been marked, make the switch
-                    and mark that a switch has been done: */
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                    switching = true;
-                    // Each time a switch is done, increase this count by 1:
-                    switchcount ++;
-                  } else {
-                    /* If no switching has been done AND the direction is "asc",
-                    set the direction to "desc" and run the while loop again. */
-                    if (switchcount == 0 && dir == "asc") {
-                      dir = "desc";
-                      switching = true;
-                    }
-                  }
+                        // Start by saying: no switching is done:
+                        switching = false;
+                        rows = table.rows;
+                        /* Loop through all table rows (except the
+                        first, which contains table headers): */
+                        for (i = 1; i < (rows.length - 1); i++) {
+                                // Start by saying there should be no switching:
+                                shouldSwitch = false;
+                                /* Get the two elements you want to compare,
+                                one from current row and one from the next: */
+                                x = rows[i].getElementsByTagName("td")[n];
+                                y = rows[i + 1].getElementsByTagName("td")[n];
+                                /* Check if the two rows should switch place,
+                                based on the direction, asc or desc: */
+                                if (dir == "asc") {
+                                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                                                // If so, mark as a switch and break the loop:
+                                                shouldSwitch = true;
+                                                break;
+                                        }
+                                } else if (dir == "desc") {
+                                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                                                // If so, mark as a switch and break the loop:
+                                                shouldSwitch = true;
+                                                break;
+                                        }
+                                }
+                        }
+                        if (shouldSwitch) {
+                                /* If a switch has been marked, make the switch
+                                and mark that a switch has been done: */
+                                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                                switching = true;
+                                // Each time a switch is done, increase this count by 1:
+                                switchcount++;
+                        } else {
+                                /* If no switching has been done AND the direction is "asc",
+                                set the direction to "desc" and run the while loop again. */
+                                if (switchcount == 0 && dir == "asc") {
+                                        dir = "desc";
+                                        switching = true;
+                                }
+                        }
                 }
-              };
+        };
 
 });
