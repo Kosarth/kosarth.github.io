@@ -50,17 +50,17 @@ $(document).ready(function () {
                 }
         };
 
-        let investedCoins = ['ETHEUR', 'LINKEUR', 'ENJUSDT', 'XEMUSDT'];
+        let investedCoins = ['ETHEUR', 'LINKEUR', 'ENJEUR', 'XEMUSDT'];
         // valor inicial usado em R$ para comprar
-        let brlValue = [20000, 10000, 10000, 10000];
+        let brlValue = [20000, 10000, 14000, 10000];
         // valor pelo qual foi realizado a compra em REAL
-        let howMuch = [10111.110, 169.590, 16, 3.6648];
+        let howMuch = [10111.110, 169.590, 15.469, 3.6648];
         // parâmetro de comparação, dividir o valor inicial em R$ pela cotação do Euro
         let dividedByValue = 6.5;
         // valor mínimo necessário em euros para vender
-        let equivalent = [1560, 26.001, 2.961, 0.681];
+        let equivalent = [1560, 26.001, 2.337, 0.681];
         // tipo de moeda que pode ser vendida Euro € ou USDT
-        let currency = ['EUR', 'EUR', 'USDT', 'USDT'];
+        let currency = ['EUR', 'EUR', 'EUR', 'USDT'];
 
         for (i = 0; i < investedCoins.length; i++) {
                 let brl = parseFloat(brlValue[i]).toFixed(2);
@@ -77,7 +77,7 @@ $(document).ready(function () {
 
                         $('#cryptoTable > tbody').append('<tr><td>' + data.symbol +
                                 '</td><td>' + toBRL(brl) +
-                                '</td><td>' + periodToComma(divideBy) +
+                                '</td><td>' + toEUR(divideBy) +
                                 '</td><td>' + toBRL(much) +
                                 '</td><td>' + periodToComma(howMany) +
                                 '</td><td>' + currency2 +
