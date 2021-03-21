@@ -50,19 +50,19 @@ $(document).ready(function () {
                 }
         };
 
-        let investedCoins = ['ETHEUR', 'LINKEUR', 'ENJEUR', 'XEMUSDT'];
+        let coins = ['ETHEUR', 'LINKEUR', 'ENJEUR', 'XEMUSDT', 'ADAEUR'];
         // valor inicial usado em R$ para comprar
-        let brlValue = [20000, 10000, 14000, 10000];
+        let brlValue = [20000, 10000, 14000, 10000, 1018.11*6.5];
         // valor pelo qual foi realizado a compra em REAL
-        let howMuch = [10111.110, 169.590, 15.469, 3.6648];
+        let howMuch = [10111.110, 169.590, 15.469, 3.6648, 6.617];
         // parâmetro de comparação, dividir o valor inicial em R$ pela cotação do Euro
         let dividedByValue = 6.5;
         // valor mínimo necessário em euros para vender
-        let equivalent = [1560, 26.001, 2.337, 0.681];
+        let equivalent = [1560, 26.001, 2.337, 0.681, 1.01811];
         // tipo de moeda que pode ser vendida Euro € ou USDT
-        let currency = ['EUR', 'EUR', 'EUR', 'USDT'];
+        let currency = ['EUR', 'EUR', 'EUR', 'USDT', 'EUR'];
 
-        for (i = 0; i < investedCoins.length; i++) {
+        for (i = 0; i < coins.length; i++) {
                 let brl = parseFloat(brlValue[i]).toFixed(2);
                 let divideBy = parseFloat(brl / dividedByValue).toFixed(2);
                 let much = howMuch[i];
@@ -70,7 +70,7 @@ $(document).ready(function () {
                 let equiv = parseFloat(equivalent[i]).toFixed(3);
                 let currency2 = currency[i];
 
-                $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + investedCoins[i], function (data) {
+                $.getJSON('https://api.binance.com/api/v3/ticker/price?symbol=' + coins[i], function (data) {
                         let value = parseFloat(data.price).toFixed(3);
                         let profit = parseFloat((data.price * howMany) - (equiv * howMany)).toFixed(2);
                         let totalEur = parseFloat(data.price * howMany).toFixed(2);
